@@ -50,7 +50,7 @@ class Logger implements LoggerInterface, Log
      */
     public function emergency($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->emergency($message, $context);
         }
     }
@@ -65,7 +65,7 @@ class Logger implements LoggerInterface, Log
      */
     public function alert($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->alert($message, $context);
         }
     }
@@ -80,7 +80,7 @@ class Logger implements LoggerInterface, Log
      */
     public function critical($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->critical($message, $context);
         }
     }
@@ -95,7 +95,7 @@ class Logger implements LoggerInterface, Log
      */
     public function error($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->error($message, $context);
         }
     }
@@ -110,7 +110,7 @@ class Logger implements LoggerInterface, Log
      */
     public function warning($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->warning($message, $context);
         }
     }
@@ -125,7 +125,7 @@ class Logger implements LoggerInterface, Log
      */
     public function notice($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->notice($message, $context);
         }
     }
@@ -140,7 +140,7 @@ class Logger implements LoggerInterface, Log
      */
     public function info($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->info($message, $context);
         }
     }
@@ -155,7 +155,7 @@ class Logger implements LoggerInterface, Log
      */
     public function debug($message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->debug($message, $context);
         }
     }
@@ -171,7 +171,7 @@ class Logger implements LoggerInterface, Log
      */
     public function log($level, $message, array $context = [])
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             $logger->log($level, $message, $context);
         }
     }
@@ -186,7 +186,7 @@ class Logger implements LoggerInterface, Log
      */
     public function useFiles($path, $level = 'debug')
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             if ($logger instanceof Log) {
                 $logger->useFiles($path, $level);
             }
@@ -204,7 +204,7 @@ class Logger implements LoggerInterface, Log
      */
     public function useDailyFiles($path, $days = 0, $level = 'debug')
     {
-        foreach ($loggers as $logger) {
+        foreach ($this->loggers as $logger) {
             if ($logger instanceof Log) {
                 $logger->useDailyFiles($path, $days, $level);
             }
