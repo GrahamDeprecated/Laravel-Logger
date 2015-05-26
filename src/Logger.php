@@ -11,10 +11,10 @@
 
 namespace GrahamCampbell\Logger;
 
-use Psr\Log\LoggerInterface;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
+use Psr\Log\LoggerInterface;
 
 /**
  * This is the logger class.
@@ -45,8 +45,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an emergency message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -60,8 +60,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an alert message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -75,8 +75,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a critical message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -90,8 +90,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an error message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -105,8 +105,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a warning message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -120,8 +120,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a notice to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -135,8 +135,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an informational message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -150,8 +150,8 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a debug message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */

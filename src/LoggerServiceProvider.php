@@ -87,7 +87,7 @@ class LoggerServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'logger'
+            'logger',
         ];
     }
 }
