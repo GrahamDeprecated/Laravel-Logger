@@ -1,0 +1,38 @@
+{
+    "name": "graham-campbell/logger",
+    "description": "Provides Multiple Loggers At Once",
+    "keywords": ["laravel", "framework", "multiple", "logging", "logs", "log", "Logger", "Laravel Logger", "Laravel-Logger", "Graham Campbell", "GrahamCampbell"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@cachethq.io"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/contracts": "5.0.*|5.1.*",
+        "illuminate/support": "5.0.*|5.1.*",
+        "psr/log": "~1.0"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "~2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "GrahamCampbell\\Logger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GrahamCampbell\\Tests\\Logger\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
