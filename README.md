@@ -56,7 +56,13 @@ This option (`'loggers'`) defines each of the loggers to call under the hood whi
 
 ## Usage
 
-There is currently no usage documentation for Laravel Logger, but we are open to pull requests.
+Laravel logger provides a clean way to log to multiple destinations at once. Simply fill out the config with the psr loggers you want to use, and we'll do the rest.
+
+Due to limitations with the way Laravel's setup, we cannot override the `log` instance that's bound to the ioc, so you'll find that still gives you an instance of Laravel's bog standard logger, and Laravel's Log facade will be using that instance too, however we do provide our own facade to use if you'd like.
+
+The main advantage to this package is that we are still able to override the ioc bindings to the psr logger interface and to Laravel's logger contract, so if you're dependency injecting those, you'll get our fancy logger to work with. Brilliant!
+
+An example of where this package can really help you out is in the exception handler. Without you having to make any changes there, you immediately have the ability to log to multiple places as Laravel's injecting our logger into your exception handler because of the binding we have to the psr logger interface.
 
 
 ## License
