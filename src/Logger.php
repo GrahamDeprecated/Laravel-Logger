@@ -13,6 +13,8 @@ namespace GrahamCampbell\Logger;
 
 use Psr\Log\LoggerInterface;
 use Illuminate\Contracts\Logging\Log;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 
 /**
  * This is the logger class.
@@ -43,7 +45,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an emergency message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -58,7 +60,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an alert message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -73,7 +75,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a critical message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -88,7 +90,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an error message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -103,7 +105,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a warning message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -118,7 +120,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a notice to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -133,7 +135,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log an informational message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -148,7 +150,7 @@ class Logger implements LoggerInterface, Log
     /**
      * Log a debug message to the logs.
      *
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -164,7 +166,7 @@ class Logger implements LoggerInterface, Log
      * Log a message to the logs.
      *
      * @param string $level
-     * @param string $message
+     * @param mixed  $message
      * @param array  $context
      *
      * @return void
@@ -172,7 +174,7 @@ class Logger implements LoggerInterface, Log
     public function log($level, $message, array $context = [])
     {
         foreach ($this->loggers as $logger) {
-            $logger->log($level, $message, $context);
+            $logger->log($this->formatMessage($level), $message, $context);
         }
     }
 
@@ -209,5 +211,25 @@ class Logger implements LoggerInterface, Log
                 $logger->useDailyFiles($path, $days, $level);
             }
         }
+    }
+
+    /**
+     * Format the parameters for the logger.
+     *
+     * @param mixed $message
+     *
+     * @return string
+     */
+    protected function formatMessage($message)
+    {
+        if (is_array($message)) {
+            return var_export($message, true);
+        } elseif ($message instanceof Jsonable) {
+            return $message->toJson();
+        } elseif ($message instanceof Arrayable) {
+            return var_export($message->toArray(), true);
+        }
+
+        return $message;
     }
 }
