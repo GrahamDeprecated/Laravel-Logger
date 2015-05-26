@@ -1,9 +1,9 @@
 Laravel Logger
 ==============
 
-Laravel Logger was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides pretty error pages for both development and production for [Laravel 5](http://laravel.com). It utilises the [Whoops](https://github.com/filp/whoops) package for the development error pages. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Logger/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
+Laravel Logger was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides multiple loggers at once for [Laravel 5](http://laravel.com). It utilises the [Whoops](https://github.com/filp/whoops) package for the development error pages. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Logger/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
 
-![Laravel Logger](https://cloud.githubusercontent.com/assets/2829600/7817621/06c7365c-03ce-11e5-967e-106b82ba8207.PNG)
+![Laravel Logger](https://cloud.githubusercontent.com/assets/2829600/7818353/17c95822-03d3-11e5-9e0b-48d52cf835d6.png)
 
 <p align="center">
 <a href="https://travis-ci.org/GrahamCampbell/Laravel-Logger"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-Logger/master.svg?style=flat-square" alt="Build Status"></img></a>
@@ -29,6 +29,10 @@ You'll then need to run `composer install` or `composer update` to download it a
 Once Laravel Logger is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'GrahamCampbell\Logger\LoggerServiceProvider'`
+
+You can register the Logger facade in the `aliases` key of your `config/app.php` file if you like.
+
+* `'Logger' => 'GrahamCampbell\Logger\Facades\Logger'`
 
 
 ## Configuration
