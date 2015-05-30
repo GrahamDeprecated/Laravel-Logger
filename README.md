@@ -56,7 +56,7 @@ This option (`'loggers'`) defines each of the loggers to call under the hood whi
 
 ## Usage
 
-Laravel logger provides a clean way to log to multiple destinations at once. Simply fill out the config with the psr loggers you want to use, and we'll do the rest.
+Laravel logger provides a clean way to log to multiple destinations at once. Simply fill out the config with the psr loggers you want to use, and we'll do the rest. We even allow you to configure which level of messages to send to each logger.
 
 Due to limitations with the way Laravel's setup, we cannot override the `log` instance that's bound to the ioc, so you'll find that still gives you an instance of Laravel's bog standard logger, and Laravel's Log facade will be using that instance too, however we do provide our own facade to use if you'd like.
 
