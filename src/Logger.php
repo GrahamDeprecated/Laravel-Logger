@@ -24,22 +24,31 @@ use Psr\Log\LoggerInterface;
 class Logger implements LoggerInterface, Log
 {
     /**
-     * The registered loggers and their levels.
+     * The registered loggers.
      *
-     * @var array
+     * @var \Psr\Log\LoggerInterface[]
      */
     protected $loggers;
+
+    /**
+     * The matching levels to log to.
+     *
+     * @var string[][]
+     */
+    protected $levels;
 
     /**
      * Create a new logger instance.
      *
      * @param \Psr\Log\LoggerInterface[] $loggers
+     * @param string[][]                 $levels
      *
      * @return void
      */
-    public function __construct(array $loggers)
+    public function __construct(array $loggers, array $levels)
     {
         $this->loggers = $loggers;
+        $this->levels = $levels;
     }
 
     /**
@@ -157,8 +166,9 @@ class Logger implements LoggerInterface, Log
      */
     public function log($level, $message, array $context = [])
     {
-        foreach ($this->loggers as $logger => $levels) {
-            if ($this->shouldLog($level, $levels)) {
+        foreach ($this->loggers as $index => $logger) {
+            $levels = $this->levels[$index];
+            if ($levels === ['*'] || $levels === ['all'] || in_array($level, $levels)) {
                 $logger->log($level, $this->formatMessage($message), $context);
             }
         }
@@ -197,25 +207,6 @@ class Logger implements LoggerInterface, Log
                 $logger->useDailyFiles($path, $days, $level);
             }
         }
-    }
-
-    /**
-     * Should the message be logged?
-     *
-     * @param string          $level
-     * @param string|string[] $levels
-     *
-     * @return string
-     */
-    protected function shouldLog($level, $levels)
-    {
-        $levels = (array) $levels;
-
-        if ($levels === ['*'] || $levels === ['all'] || in_array($level, $levels)) {
-            return true;
-        }
-
-        return false;
     }
 
     /**
