@@ -24,9 +24,9 @@ use Psr\Log\LoggerInterface;
 class Logger implements LoggerInterface, Log
 {
     /**
-     * The registered loggers.
+     * The registered loggers and their levels.
      *
-     * @var \Psr\Log\LoggerInterface[]
+     * @var array
      */
     protected $loggers;
 
@@ -157,8 +157,10 @@ class Logger implements LoggerInterface, Log
      */
     public function log($level, $message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->log($this->formatMessage($level), $message, $context);
+        foreach ($this->loggers as $logger => $levels) {
+            if ($this->shouldLog($level, $levels)) {
+                $logger->log($this->formatMessage($level), $message, $context);
+            }
         }
     }
 
@@ -195,6 +197,25 @@ class Logger implements LoggerInterface, Log
                 $logger->useDailyFiles($path, $days, $level);
             }
         }
+    }
+
+    /**
+     * Should the message be logged?
+     *
+     * @param string          $level
+     * @param string|string[] $levels
+     *
+     * @return string
+     */
+    protected function shouldLog($level, $levels)
+    {
+        $levels = (array) $levels;
+
+        if ($levels === ['*'] || $levels === ['all'] || in_array($level, $levels)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

@@ -21,7 +21,7 @@ return [
     */
 
     'loggers' => [
-        'Illuminate\Log\Writer',
+        'Illuminate\Log\Writer' => ['*']
     ],
 
 ];
