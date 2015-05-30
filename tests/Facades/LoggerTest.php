@@ -50,6 +50,6 @@ class LoggerTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Logger\Logger';
+        return 'GrahamCampbell\Logger\LoggerWrapper';
     }
 }
