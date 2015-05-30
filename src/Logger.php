@@ -159,7 +159,7 @@ class Logger implements LoggerInterface, Log
     {
         foreach ($this->loggers as $logger => $levels) {
             if ($this->shouldLog($level, $levels)) {
-                $logger->log($this->formatMessage($level), $message, $context);
+                $logger->log($level, $this->formatMessage($message), $context);
             }
         }
     }
