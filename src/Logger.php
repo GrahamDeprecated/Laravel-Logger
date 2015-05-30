@@ -52,9 +52,7 @@ class Logger implements LoggerInterface, Log
      */
     public function emergency($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->emergency($message, $context);
-        }
+        $logger->emergency($message, $context);
     }
 
     /**
@@ -67,9 +65,7 @@ class Logger implements LoggerInterface, Log
      */
     public function alert($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->alert($message, $context);
-        }
+        $logger->alert($message, $context);
     }
 
     /**
@@ -82,9 +78,7 @@ class Logger implements LoggerInterface, Log
      */
     public function critical($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->critical($message, $context);
-        }
+        $logger->critical($message, $context);
     }
 
     /**
@@ -97,9 +91,7 @@ class Logger implements LoggerInterface, Log
      */
     public function error($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->error($message, $context);
-        }
+        $logger->error($message, $context);
     }
 
     /**
@@ -112,9 +104,7 @@ class Logger implements LoggerInterface, Log
      */
     public function warning($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->warning($message, $context);
-        }
+        $logger->warning($message, $context);
     }
 
     /**
@@ -127,9 +117,7 @@ class Logger implements LoggerInterface, Log
      */
     public function notice($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->notice($message, $context);
-        }
+        $logger->notice($message, $context);
     }
 
     /**
@@ -142,9 +130,7 @@ class Logger implements LoggerInterface, Log
      */
     public function info($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->info($message, $context);
-        }
+        $logger->info($message, $context);
     }
 
     /**
@@ -157,9 +143,7 @@ class Logger implements LoggerInterface, Log
      */
     public function debug($message, array $context = [])
     {
-        foreach ($this->loggers as $logger) {
-            $logger->debug($message, $context);
-        }
+        $logger->debug($message, $context);
     }
 
     /**
