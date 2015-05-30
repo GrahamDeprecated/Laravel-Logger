@@ -22,17 +22,17 @@ class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
 
-    public function testLoggerIsInjectable()
+    public function testLoggerWrapperIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Logger\Logger');
+        $this->assertIsInjectable('GrahamCampbell\Logger\LoggerWrapper');
     }
 
     public function testBindings()
     {
-        $this->assertInstanceOf('GrahamCampbell\Logger\Logger', $this->app->make('logger'));
-        $this->assertInstanceOf('GrahamCampbell\Logger\Logger', $this->app->make('Psr\Log\LoggerInterface'));
-        $this->assertInstanceOf('GrahamCampbell\Logger\Logger', $this->app->make('GrahamCampbell\Logger\Logger'));
-        $this->assertInstanceOf('GrahamCampbell\Logger\Logger', $this->app->make('Illuminate\Contracts\Logging\Log'));
+        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('logger'));
+        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('Psr\Log\LoggerInterface'));
+        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('GrahamCampbell\Logger\LoggerWrapper'));
+        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('Illuminate\Contracts\Logging\Log'));
 
         $this->assertInstanceOf('Illuminate\Log\Writer', $this->app->make('log'));
         $this->assertInstanceOf('Illuminate\Log\Writer', $this->app->make('Illuminate\Log\Writer'));

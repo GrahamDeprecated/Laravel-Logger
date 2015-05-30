@@ -66,17 +66,15 @@ class LoggerServiceProvider extends ServiceProvider
     {
         $app->singleton('logger', function ($app) {
             $loggers = [];
-            $levels = [];
 
             foreach ($app->config->get('logger.loggers', []) as $logger => $levels) {
-                $loggers[] = $app->make($logger);
-                $levels[] = (array) $levels;
+                $loggers[] = new LevelAwareLogger($app->make($logger), (array) $levels);
             }
 
-            return new Logger($loggers, $levels);
+            return new LoggerWrapper($loggers);
         });
 
-        $app->alias('logger', Logger::class);
+        $app->alias('logger', LoggerWrapper::class);
         $app->alias('logger', 'Psr\Log\LoggerInterface');
         $app->alias('logger', 'Illuminate\Contracts\Logging\Log');
     }
