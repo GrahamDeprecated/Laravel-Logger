@@ -40,7 +40,9 @@ class LoggerServiceProvider extends ServiceProvider
     {
         $source = realpath(__DIR__.'/../config/logger.php');
 
-        $this->publishes([$source => config_path('logger.php')]);
+        if (class_exists('Illuminate\Foundation\Application', false)) {
+            $this->publishes([$source => config_path('logger.php')]);
+        }
 
         $this->mergeConfigFrom($source, 'logger');
     }
