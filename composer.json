@@ -9,12 +9,6 @@
             "email": "graham@cachethq.io"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/phpunit"
-        }
-    ],
     "require": {
         "php": ">=5.5.9",
         "graham-campbell/logger-core": "~1.0",
@@ -24,8 +18,8 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "~3.0",
-        "mockery/mockery": "~0.9.4",
-        "phpunit/phpunit": "~4.7.999"
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^4.7.6"
     },
     "autoload": {
         "psr-4": {
