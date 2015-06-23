@@ -21,7 +21,7 @@ Laravel Logger was created by, and is maintained by [Graham Campbell](https://gi
 To get the latest version of Laravel Logger, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"graham-campbell/logger": "~1.0"
+"graham-campbell/logger": "~1.1"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
