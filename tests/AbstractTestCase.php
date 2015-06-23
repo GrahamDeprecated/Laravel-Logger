@@ -11,6 +11,7 @@
 
 namespace GrahamCampbell\Tests\Logger;
 
+use GrahamCampbell\Logger\LoggerServiceProvider;
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 /**
@@ -29,6 +30,6 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\Logger\LoggerServiceProvider';
+        return LoggerServiceProvider::class;
     }
 }

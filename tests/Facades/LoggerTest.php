@@ -11,7 +11,9 @@
 
 namespace GrahamCampbell\Tests\Logger\Facades;
 
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Logger\Facades\Logger;
+use GrahamCampbell\Logger\LoggerWrapper;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Logger\AbstractTestCase;
 
 /**
@@ -21,7 +23,7 @@ use GrahamCampbell\Tests\Logger\AbstractTestCase;
  */
 class LoggerTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
+    use FacadeTrait;
 
     /**
      * Get the facade accessor.
@@ -40,7 +42,7 @@ class LoggerTest extends AbstractTestCase
      */
     protected function getFacadeClass()
     {
-        return 'GrahamCampbell\Logger\Facades\Logger';
+        return Logger::class;
     }
 
     /**
@@ -50,6 +52,6 @@ class LoggerTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Logger\LoggerWrapper';
+        return LoggerWrapper::class;
     }
 }

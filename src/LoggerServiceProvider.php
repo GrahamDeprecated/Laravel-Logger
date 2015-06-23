@@ -12,7 +12,9 @@
 namespace GrahamCampbell\Logger;
 
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\ServiceProvider;
+use Psr\Log\LoggerInterface;
 
 /**
  * This is the logger service provider class.
@@ -77,8 +79,8 @@ class LoggerServiceProvider extends ServiceProvider
         });
 
         $app->alias('logger', LoggerWrapper::class);
-        $app->alias('logger', 'Psr\Log\LoggerInterface');
-        $app->alias('logger', 'Illuminate\Contracts\Logging\Log');
+        $app->alias('logger', LoggerInterface::class);
+        $app->alias('logger', Log::class);
     }
 
     /**

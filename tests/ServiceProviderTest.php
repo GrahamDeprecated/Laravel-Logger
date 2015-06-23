@@ -11,7 +11,11 @@
 
 namespace GrahamCampbell\Tests\Logger;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use GrahamCampbell\Logger\LoggerWrapper;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
+use Illuminate\Log\Writer;
+use Illuminate\Contracts\Logging\Log;
+use Psr\Log\LoggerInterface;
 
 /**
  * This is the service provider test class.
@@ -20,21 +24,21 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
  */
 class ServiceProviderTest extends AbstractTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use ServiceProviderTrait;
 
     public function testLoggerWrapperIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Logger\LoggerWrapper');
+        $this->assertIsInjectable(LoggerWrapper::class);
     }
 
     public function testBindings()
     {
-        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('logger'));
-        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('Psr\Log\LoggerInterface'));
-        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('GrahamCampbell\Logger\LoggerWrapper'));
-        $this->assertInstanceOf('GrahamCampbell\Logger\LoggerWrapper', $this->app->make('Illuminate\Contracts\Logging\Log'));
+        $this->assertInstanceOf(LoggerWrapper::class, $this->app->make('logger'));
+        $this->assertInstanceOf(LoggerWrapper::class, $this->app->make(LoggerInterface::class));
+        $this->assertInstanceOf(LoggerWrapper::class, $this->app->make(LoggerWrapper::class));
+        $this->assertInstanceOf(LoggerWrapper::class, $this->app->make(Log::class));
 
-        $this->assertInstanceOf('Illuminate\Log\Writer', $this->app->make('log'));
-        $this->assertInstanceOf('Illuminate\Log\Writer', $this->app->make('Illuminate\Log\Writer'));
+        $this->assertInstanceOf(Writer::class, $this->app->make('log'));
+        $this->assertInstanceOf(Writer::class, $this->app->make(Writer::class));
     }
 }
