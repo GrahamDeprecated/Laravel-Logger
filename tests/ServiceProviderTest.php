@@ -13,8 +13,8 @@ namespace GrahamCampbell\Tests\Logger;
 
 use GrahamCampbell\Logger\LoggerWrapper;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
-use Illuminate\Log\Writer;
 use Illuminate\Contracts\Logging\Log;
+use Illuminate\Log\Writer;
 use Psr\Log\LoggerInterface;
 
 /**
