@@ -27,7 +27,7 @@ class LevelAwareLogger implements LoggerInterface, Log
     /**
      * The underlying logger instance.
      *
-     * @var \Psr\Log\LoggerInterface[]
+     * @var \Psr\Log\LoggerInterface
      */
     protected $logger;
 
