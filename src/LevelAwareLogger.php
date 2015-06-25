@@ -73,7 +73,7 @@ class LevelAwareLogger implements LoggerInterface, Log
      *
      * @param string $level
      *
-     * @return string
+     * @return bool
      */
     protected function shouldLog($level)
     {
