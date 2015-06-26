@@ -3,6 +3,10 @@ Laravel Logger
 
 Laravel Logger was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides multiple loggers at once for [Laravel 5](http://laravel.com). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Logger/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
 
+## WARNING
+
+#### This package is no longer maintained.
+
 ![Laravel Logger](https://cloud.githubusercontent.com/assets/2829600/7818353/17c95822-03d3-11e5-9e0b-48d52cf835d6.png)
 
 <p align="center">
